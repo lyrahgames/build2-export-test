@@ -1,0 +1,3 @@
+# libmytest
+
+C++ library
