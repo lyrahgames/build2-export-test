@@ -1,14 +1,13 @@
 #include <sstream>
 #include <stdexcept>
 
-#include <libmytest/version.hpp>
 #include <libmytest/mytest.hpp>
+#include <libmytest/version.hpp>
 
 #undef NDEBUG
 #include <cassert>
 
-int main ()
-{
+int main() {
   using namespace std;
   using namespace mytest;
 
@@ -16,20 +15,29 @@ int main ()
   //
   {
     ostringstream o;
-    say_hello (o, "World");
-    assert (o.str () == "Hello, World!\n");
+    say_hello(o, "World");
+    assert(o.str() == "Hello, World!\n");
+  }
+  {
+    ostringstream o;
+    say_bye(o, "World");
+    assert(o.str() == "Bye, World!\n");
   }
 
   // Empty name.
   //
-  try
-  {
+  try {
     ostringstream o;
-    say_hello (o, "");
-    assert (false);
+    say_hello(o, "");
+    assert(false);
+  } catch (const invalid_argument& e) {
+    assert(e.what() == string("empty name"));
   }
-  catch (const invalid_argument& e)
-  {
-    assert (e.what () == string ("empty name"));
+  try {
+    ostringstream o;
+    say_bye(o, "");
+    assert(false);
+  } catch (const invalid_argument& e) {
+    assert(e.what() == string("empty name"));
   }
 }
