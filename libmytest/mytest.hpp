@@ -18,4 +18,12 @@ void say_hello(std::ostream&, const std::string& name);
 //
 void say_bye(std::ostream&, const std::string& name);
 
+struct root {
+  virtual void print(std::ostream&);
+};
+
+struct leaf : root {
+  void print(std::ostream&) override;
+};
+
 }  // namespace mytest

@@ -19,4 +19,12 @@ void say_bye(ostream& o, const string& n) {
   o << "Bye, " << n << '!' << endl;
 }
 
+void root::print(ostream& o) {
+  o << "root" << endl;
+}
+
+void leaf::print(ostream& o) {
+  o << "leaf" << endl;
+}
+
 }  // namespace mytest
