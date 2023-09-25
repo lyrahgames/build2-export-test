@@ -23,6 +23,7 @@ struct root {
 };
 
 struct leaf : root {
+  virtual ~leaf() noexcept = default;
   void print(std::ostream&) override;
 };
 
