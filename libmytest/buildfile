@@ -2,7 +2,12 @@ intf_libs = # Interface dependencies.
 impl_libs = # Implementation dependencies.
 #import xxxx_libs += libhello%lib{hello}
 
-lib{mytest}: {hxx ixx txx cxx}{** -version} hxx{version} $impl_libs $intf_libs
+lib{mytest}: libul{mytest}: {hxx ixx txx cxx}{** -version} hxx{version} $impl_libs $intf_libs
+
+# '.def' File for Automatic Symbol Exportation
+#
+libs{mytest}: def{mytest}: include = ($cxx.target.system == 'win32-msvc')
+def{mytest}: libul{mytest}
 
 hxx{version}: in{version} $src_root/manifest
 
@@ -11,6 +16,8 @@ hxx{export}@./: cxx.importable = false
 # Build options.
 #
 cxx.poptions =+ "-I$out_root" "-I$src_root"
+if ($cxx.target.system == 'mingw32')
+  cxx.loptions += -Wl,--export-all-symbols
 
 {hbmia obja}{*}: cxx.poptions += -DLIBMYTEST_STATIC_BUILD
 {hbmis objs}{*}: cxx.poptions += -DLIBMYTEST_SHARED_BUILD
