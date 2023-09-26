@@ -19,11 +19,22 @@ void say_hello(std::ostream&, const std::string& name);
 void say_bye(std::ostream&, const std::string& name);
 
 struct root {
+  root() noexcept = default;
+  virtual ~root() noexcept = default;
+
+  template <typename type>
+  root(type value) noexcept {}
+
   virtual void print(std::ostream&);
 };
 
 struct leaf : root {
+  leaf() noexcept = default;
   virtual ~leaf() noexcept = default;
+
+  template <typename type>
+  leaf(type value) noexcept : root(value) {}
+
   void print(std::ostream&) override;
 };
 

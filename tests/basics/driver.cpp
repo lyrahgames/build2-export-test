@@ -44,13 +44,13 @@ int main() {
 
   // Polymorphism Test
   //
-  auto p = make_unique<root>();
+  auto p = make_unique<root>(1);
   {
     ostringstream o;
     p->print(o);
     assert(o.str() == "root\n");
   }
-  p = make_unique<leaf>();
+  p = make_unique<leaf>(2);
   {
     ostringstream o;
     p->print(o);
