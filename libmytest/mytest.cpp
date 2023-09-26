@@ -19,7 +19,7 @@ void say_bye(ostream& o, const string& n) {
   o << "Bye, " << n << '!' << endl;
 }
 
-// root::root(int value) noexcept : data{value} {}
+root::root(int value) noexcept : data{value} {}
 
 void root::print(ostream& o) {
   o << "root " << data << endl;
