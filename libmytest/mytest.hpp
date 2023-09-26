@@ -11,7 +11,7 @@ struct root {
 
   root(const wrapper& value) noexcept : root(value.data) {}
 
-  virtual ~root() noexcept = default;
+  // virtual ~root() noexcept = default;
 
   int data{};
 };
