@@ -23,6 +23,9 @@ struct wrapper {
   type data;
 };
 
+template <typename type>
+wrapper(const type&) -> wrapper<type>;
+
 class root {
  public:
   root() noexcept = default;
