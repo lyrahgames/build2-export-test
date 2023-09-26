@@ -18,24 +18,44 @@ void say_hello(std::ostream&, const std::string& name);
 //
 void say_bye(std::ostream&, const std::string& name);
 
-struct root {
+template <typename type>
+struct wrapper {
+  type data;
+};
+
+class root {
+ public:
   root() noexcept = default;
   virtual ~root() noexcept = default;
 
+  root(int value) noexcept;
+
   template <typename type>
-  root(type value) noexcept {}
+  root(const wrapper<type>& value) noexcept;
 
   virtual void print(std::ostream&);
+
+ protected:
+  int data{};
 };
 
-struct leaf : root {
+class leaf : public root {
+ public:
   leaf() noexcept = default;
   virtual ~leaf() noexcept = default;
 
+  leaf(int value) noexcept;
+
   template <typename type>
-  leaf(type value) noexcept : root(value) {}
+  leaf(const wrapper<type>& value) noexcept;
 
   void print(std::ostream&) override;
 };
+
+template <typename type>
+root::root(const wrapper<type>& value) noexcept : root(value.data) {}
+
+template <typename type>
+leaf::leaf(const wrapper<type>& value) noexcept : leaf(value.data) {}
 
 }  // namespace mytest

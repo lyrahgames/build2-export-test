@@ -19,12 +19,16 @@ void say_bye(ostream& o, const string& n) {
   o << "Bye, " << n << '!' << endl;
 }
 
+root::root(int value) noexcept : data{value} {}
+
 void root::print(ostream& o) {
-  o << "root" << endl;
+  o << "root " << data << endl;
 }
 
+leaf::leaf(int value) noexcept : root(value) {}
+
 void leaf::print(ostream& o) {
-  o << "leaf" << endl;
+  o << "leaf " << data << endl;
 }
 
 }  // namespace mytest
