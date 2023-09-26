@@ -6,6 +6,6 @@
 using namespace mytest;
 
 int main() {
-  root x{wrapper{1}};
+  bug x{wrapper{1}};
   assert(x.data == 1);
 }

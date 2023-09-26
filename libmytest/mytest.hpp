@@ -6,12 +6,12 @@ struct wrapper {
   int data;
 };
 
-struct root {
-  root(int value) noexcept;
+struct bug {
+  bug(int value) noexcept;
 
-  root(const wrapper& value) noexcept : root(value.data) {}
+  bug(const wrapper& value) noexcept : bug(value.data) {}
 
-  // virtual ~root() noexcept = default;
+  virtual ~bug() noexcept = default;
 
   int data{};
 };

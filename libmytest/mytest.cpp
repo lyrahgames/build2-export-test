@@ -2,6 +2,6 @@
 
 namespace mytest {
 
-root::root(int value) noexcept : data{value} {}
+bug::bug(int value) noexcept : data{value} {}
 
 }  // namespace mytest
