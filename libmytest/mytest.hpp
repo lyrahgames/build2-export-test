@@ -31,7 +31,7 @@ class root {
   root() noexcept = default;
   virtual ~root() noexcept = default;
 
-  root(int value) noexcept;
+  root(int value) noexcept : data{value} {}
 
   template <typename type>
   root(const wrapper<type>& value) noexcept : root(value.data) {}
