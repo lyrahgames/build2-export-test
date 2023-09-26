@@ -16,4 +16,12 @@ struct bug {
   int data{};
 };
 
+struct bug2 {
+  virtual void set(int value) noexcept;
+
+  void increment() noexcept { set(data + 1); }
+
+  int data{};
+};
+
 }  // namespace mytest
