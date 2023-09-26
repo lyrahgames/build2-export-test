@@ -21,9 +21,9 @@ void say_bye(ostream& o, const string& n) {
 
 root::root(int value) noexcept : data{value} {}
 
-void root::print(ostream& o) {
-  o << "root " << data << endl;
-}
+// void root::print(ostream& o) {
+//   o << "root " << data << endl;
+// }
 
 // leaf::leaf(int value) noexcept : root(value) {}
 

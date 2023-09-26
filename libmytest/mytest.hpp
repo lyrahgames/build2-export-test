@@ -26,9 +26,8 @@ struct wrapper {
 template <typename type>
 wrapper(const type&) -> wrapper<type>;
 
-class root {
- public:
-  root() noexcept = default;
+struct root {
+  // root() noexcept = default;
   virtual ~root() noexcept = default;
 
   root(int value) noexcept;
@@ -38,9 +37,8 @@ class root {
 
   root(const wrapper<int>& value) noexcept : root(value.data) {}
 
-  virtual void print(std::ostream&);
+  // virtual void print(std::ostream&);
 
- protected:
   int data{};
 };
 
