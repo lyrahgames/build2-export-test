@@ -18,16 +18,20 @@ void say_hello(std::ostream&, const std::string& name);
 //
 void say_bye(std::ostream&, const std::string& name);
 
-template <typename type>
+// template <typename type>
+// struct wrapper {
+//   type data;
+// };
+
+// template <typename type>
+// wrapper(const type&) -> wrapper<type>;
+
 struct wrapper {
-  type data;
+  int data;
 };
 
-template <typename type>
-wrapper(const type&) -> wrapper<type>;
-
 struct root {
-  // root() noexcept = default;
+  root() noexcept = default;
   virtual ~root() noexcept = default;
 
   root(int value) noexcept;
@@ -35,7 +39,7 @@ struct root {
   // template <typename type>
   // root(const wrapper<type>& value) noexcept : root(value.data) {}
 
-  root(const wrapper<int>& value) noexcept : root(value.data) {}
+  root(const wrapper& value) noexcept : root(value.data) {}
 
   // virtual void print(std::ostream&);
 
