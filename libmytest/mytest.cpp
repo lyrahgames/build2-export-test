@@ -25,10 +25,10 @@ void root::print(ostream& o) {
   o << "root " << data << endl;
 }
 
-leaf::leaf(int value) noexcept : root(value) {}
+// leaf::leaf(int value) noexcept : root(value) {}
 
-void leaf::print(ostream& o) {
-  o << "leaf " << data << endl;
-}
+// void leaf::print(ostream& o) {
+//   o << "leaf " << data << endl;
+// }
 
 }  // namespace mytest

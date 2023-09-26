@@ -42,23 +42,23 @@ class root {
   int data{};
 };
 
-class leaf : public root {
- public:
-  leaf() noexcept = default;
-  virtual ~leaf() noexcept = default;
-
-  leaf(int value) noexcept;
-
-  template <typename type>
-  leaf(const wrapper<type>& value) noexcept;
-
-  void print(std::ostream&) override;
-};
-
 template <typename type>
 root::root(const wrapper<type>& value) noexcept : root(value.data) {}
 
-template <typename type>
-leaf::leaf(const wrapper<type>& value) noexcept : leaf(value.data) {}
+// class leaf : public root {
+//  public:
+//   leaf() noexcept = default;
+//   virtual ~leaf() noexcept = default;
+
+//   leaf(int value) noexcept;
+
+//   template <typename type>
+//   leaf(const wrapper<type>& value) noexcept;
+
+//   void print(std::ostream&) override;
+// };
+
+// template <typename type>
+// leaf::leaf(const wrapper<type>& value) noexcept : leaf(value.data) {}
 
 }  // namespace mytest

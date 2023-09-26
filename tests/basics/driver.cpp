@@ -50,10 +50,10 @@ int main() {
     p->print(o);
     assert(o.str() == "root 1\n");
   }
-  p = make_unique<leaf>(wrapper{2});
-  {
-    ostringstream o;
-    p->print(o);
-    assert(o.str() == "leaf 2\n");
-  }
+  // p = make_unique<leaf>(wrapper{2});
+  // {
+  //   ostringstream o;
+  //   p->print(o);
+  //   assert(o.str() == "leaf 2\n");
+  // }
 }
