@@ -34,7 +34,7 @@ class root {
   root(int value) noexcept;
 
   template <typename type>
-  root(const wrapper<type>& value) noexcept;
+  root(const wrapper<type>& value) noexcept : root(value.data) {}
 
   virtual void print(std::ostream&);
 
@@ -42,8 +42,8 @@ class root {
   int data{};
 };
 
-template <typename type>
-root::root(const wrapper<type>& value) noexcept : root(value.data) {}
+// template <typename type>
+// root::root(const wrapper<type>& value) noexcept : root(value.data) {}
 
 // class leaf : public root {
 //  public:
